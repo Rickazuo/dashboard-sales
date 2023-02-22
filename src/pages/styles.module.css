@@ -1,0 +1,22 @@
+.container{
+    background-color: #292738;
+    width: auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.indicatorsContainer{
+    display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 32px;
+
+position: relative;
+width: 1120px;
+height: 379px;
+
+}
