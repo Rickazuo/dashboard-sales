@@ -3,11 +3,38 @@ import Nps from "../components/nps/nps";
 import CircleCard from "../components/circleCard/circleCard";
 
 function HomePage() {
+  const allSales = {
+    title: "Vendas Fechadas",
+    salesExpected: 100,
+    salesPerformed: 70,
+  };
+
+  const goalSales = {
+    title: "Meta Mensal",
+    salesExpected: 70,
+    salesPerformed: 63,
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.indicatorsContainer}>
         <Nps />
-        <CircleCard />
+        <CircleCard
+          title={allSales.title}
+          percentage={(allSales.salesPerformed / allSales.salesExpected) * 100}
+          salesExpected={allSales.salesExpected}
+          salesPerformed={allSales.salesPerformed}
+        />
+        <CircleCard
+          title={goalSales.title}
+          percentage={
+            ((goalSales.salesPerformed / goalSales.salesExpected) * 100) / 1000
+          }
+          currencyReal
+          currencyThousand
+          salesExpected={goalSales.salesExpected}
+          salesPerformed={goalSales.salesPerformed / 1000}
+        />
         <div></div>
       </div>
       <div></div>
