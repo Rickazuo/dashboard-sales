@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import Nps from "../components/nps/nps";
 import CircleCard from "../components/circleCard/circleCard";
-import RadialBar from "../components/radialBar/radialBar";
+import RadialGraph from "../components/radialGraph/radialGraph";
 
 function HomePage() {
   const allSales = {
@@ -18,6 +18,7 @@ function HomePage() {
 
   return (
     <div className={styles.container}>
+      <RadialGraph progress={70} color="#3c71d0" />
       <div className={styles.indicatorsContainer}>
         <Nps />
         <CircleCard
@@ -26,7 +27,6 @@ function HomePage() {
           salesExpected={allSales.salesExpected}
           salesPerformed={allSales.salesPerformed}
         />
-        <RadialBar />
         <CircleCard
           title={goalSales.title}
           percentage={
