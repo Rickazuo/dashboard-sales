@@ -1,6 +1,7 @@
 import styles from "./styles.module.css";
 import Nps from "../components/nps/nps";
 import CircleCard from "../components/circleCard/circleCard";
+import RadialBar from "../components/radialBar/radialBar";
 
 function HomePage() {
   const allSales = {
@@ -25,6 +26,7 @@ function HomePage() {
           salesExpected={allSales.salesExpected}
           salesPerformed={allSales.salesPerformed}
         />
+        <RadialBar />
         <CircleCard
           title={goalSales.title}
           percentage={
