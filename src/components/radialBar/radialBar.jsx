@@ -1,105 +1,101 @@
-import React, { Component } from "react";
+import { useState } from "react";
 import Chart from "react-apexcharts";
 
-class RadialBar extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      series: [75],
-      options: {
+const RadialBar = () => {
+    const [series] = useState([70]);
+    const [options] = useState({
         chart: {
-          height: 350,
-          type: "radialBar",
-          toolbar: {
-            show: true,
-          },
+            height: 350,
+            type: "radialBar",
+            toolbar: {
+                show: false,
+            },
         },
         plotOptions: {
-          radialBar: {
-            startAngle: -135,
-            endAngle: 225,
-            hollow: {
-              margin: 0,
-              size: "70%",
-              background: "#fff",
-              image: undefined,
-              imageOffsetX: 0,
-              imageOffsetY: 0,
-              position: "front",
-              dropShadow: {
-                enabled: true,
-                top: 3,
-                left: 0,
-                blur: 4,
-                opacity: 0.24,
-              },
-            },
-            track: {
-              background: "#fff",
-              strokeWidth: "67%",
-              margin: 0, // margin is in pixels
-              dropShadow: {
-                enabled: true,
-                top: -3,
-                left: 0,
-                blur: 4,
-                opacity: 0.35,
-              },
-            },
-
-            dataLabels: {
-              show: true,
-              name: {
-                offsetY: -10,
-                show: true,
-                color: "#888",
-                fontSize: "17px",
-              },
-              value: {
-                formatter: function (val) {
-                  return parseInt(val);
+            radialBar: {
+                startAngle: 0,
+                endAngle: 360,
+                hollow: {
+                    margin: 0,
+                    size: "52%",
+                    background: "#363447",
+                    image: undefined,
+                    imageOffsetX: 0,
+                    imageOffsetY: 0,
+                    position: "front",
+                    dropShadow: {
+                        enabled: true,
+                        top: 3,
+                        left: 0,
+                        blur: 4,
+                        opacity: 0.1,
+                    },
                 },
-                color: "#111",
-                fontSize: "36px",
-                show: true,
-              },
+                track: {
+                    background: "#D9D9D9",
+                    strokeWidth: "99%",
+                    margin: 3, // margin is in pixels
+                    dropShadow: {
+                        enabled: true,
+                        top: -3,
+                        left: 0,
+                        blur: 4,
+                        opacity: 0.1,
+                    },
+                },
+
+                dataLabels: {
+                    show: true,
+                    name: {
+                        offsetY: 20,
+                        show: true,
+                        color: "#FFFFFF",
+                        fontSize: "17px",
+                    },
+                    value: {
+                        formatter: function (val) {
+                            return parseInt(val) + "%";
+                        },
+                        color: "#FFFFFF",
+                        fontSize: "36px",
+                        show: true,
+                        offsetY: -20,
+                    },
+                },
             },
-          },
         },
         fill: {
-          type: "gradient",
-          gradient: {
-            shade: "dark",
-            type: "horizontal",
-            shadeIntensity: 0.5,
-            gradientToColors: ["#ABE5A1"],
-            inverseColors: true,
-            opacityFrom: 1,
-            opacityTo: 1,
-            stops: [0, 100],
-          },
+            colors: "#CE9FFC",
+            opacity: 0.1,
+            type: "gradient",
+            gradient: {
+                shade: "dark",
+                type: "linear",
+                shadeIntensity: 0.9,
+                gradientToColors: ["#7367F0"],
+                inverseColors: false,
+                opacityFrom: 1,
+                opacityTo: 1,
+                stops: [0, 50, 100],
+            },
         },
         stroke: {
-          lineCap: "round",
+            curve: "smooth",
+            lineCap: "round",
         },
-        labels: ["Percent"],
-      },
-    };
-  }
+        labels: ["Alcançada"],
+    });
 
-  render() {
     return (
-      <div className="donut">
-        <Chart
-          options={this.state.options}
-          series={this.state.series}
-          type="radialBar"
-          width="380"
-        />
-      </div>
+        <div className="donut">
+            <Chart
+                options={options}
+                series={series}
+                type="radialBar"
+                width="380"
+            />
+        </div>
     );
-  }
-}
+};
 
 export default RadialBar;

@@ -2,54 +2,65 @@
     background-color: #363447;
 
     display: flex;
-flex-direction: column;
-align-items: center;
-padding: 29px 48px;
-gap: 32px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0px 110px;
+    gap: 32px;
 
-width: 296px;
-height: 379px;
+    height: 100%;
 
-background: #363447;
-box-shadow: 3px 4px 26px rgba(0, 0, 0, 0.25);
-border-radius: 16px;
+    background: #363447;
+    box-shadow: 3px 4px 26px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
 }
 
-.nameNps{
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 24px;
-line-height: 160%;
+.nameNps {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 160%;
 
-text-align: center;
+    text-align: center;
 
-color: #FFFFFF;
+    color: #ffffff;
 }
 
-.iconNps{
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 24px;
-line-height: 160%;
-
-display: flex;
-flex-direction: column;
-gap: 16px;
-text-align: center;
-
-color: #81FBB8;
+.iconContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
 }
 
-.scoreNps{
-    font-family: 'Inter';
+.iconNps {
+    width: 54px;
+}
+
+.subtitleIconNps {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 160%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+
+    color: #81fbb8;
+}
+
+.scoreNps {
+    font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 160%;
-    
+
     text-align: center;
-    
-    color: #FFFFFF;
+
+    color: #ffffff;
 }
