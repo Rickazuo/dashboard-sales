@@ -40,6 +40,16 @@ right: 0;
 
 }
 
+.containerTitle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: start;
+
+    padding: 32px 32px 0 32px;
+}
+
 .title{
     font-family: 'Inter';
 font-style: normal;
@@ -49,10 +59,10 @@ line-height: 160%;
 
 text-align: center;
 
-margin-top: 32px;
 
 color: #FFFFFF;
 }
+
 
 .finishedSalesContainer{
     display: flex;

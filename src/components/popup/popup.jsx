@@ -6,7 +6,10 @@ const Popup = ({ close }) => {
     <div className={styles.overlay}>
       <div className={styles.container}>
         <div className={styles.inputsDatas}>
-          <div className={styles.title}>Adicione os Dados</div>
+          <div className={styles.containerTitle}>
+            <div className={styles.title}>Adicione os Dados</div>
+            <button onClick={close}>x</button>
+          </div>
           <div className={styles.finishedSalesContainer}>
             <div>Vendas Fechadas</div>
             <input placeholder="Quantidade Esperada" type="text" />
