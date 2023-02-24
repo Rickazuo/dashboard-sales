@@ -4,9 +4,10 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: #292738;
 }
+
 .radial-chart {
     position: relative;
     display: inline-block;

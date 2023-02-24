@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Chart from "react-apexcharts";
 
-const RadialBar = () => {
+const RadialBar = ({ width }) => {
     const [series] = useState([70]);
     const [options] = useState({
         chart: {
@@ -92,7 +92,7 @@ const RadialBar = () => {
                 options={options}
                 series={series}
                 type="radialBar"
-                width="380"
+                width={width < 400 ? "320" : "380"}
             />
         </div>
     );

@@ -1,75 +1,83 @@
-.container{
+.container {
     display: flex;
-flex-direction: row;
-align-items: flex-end;
+    flex-direction: row;
+    align-items: flex-end;
     background: #363447;
-box-shadow: 3px 4px 26px rgba(0, 0, 0, 0.25);
-border-radius: 16px;
-
-
+    box-shadow: 3px 4px 26px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
 }
 
-
-.containerDaysIndicators{
+.containerDaysIndicators {
     display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 29px 48px;
-gap: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 29px 48px;
+    gap: 32px;
 
-margin-right: 164px;
+    margin-right: 164px;
 }
 
-.titleWeekSales{
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 24px;
-line-height: 160%;
+.titleWeekSales {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 160%;
 
-align-items: flex-start;
-text-align: left;
+    align-items: flex-start;
+    text-align: left;
 
-color: #FFFFFF;
+    color: #ffffff;
 }
 
-.dayIndicator{
+.dayIndicator {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.dayMoreSale{
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 160%;
+.dayMoreSale {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 160%;
 
-gap: 4px;
+    gap: 4px;
 
-display: flex;
+    display: flex;
 
-color: #FFFFFF;
-
+    color: #ffffff;
 }
 
-.majorDay{
-    font-family: 'Inter';
-font-style: normal;
-font-weight: 500;
-font-size: 24px;
-line-height: 160%;
-
-color: #FFFFFF;
-}
-
-.minorDay{
-    font-family: 'Inter';
+.majorDay {
+    font-family: "Inter";
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
     line-height: 160%;
-    
-    color: #FFFFFF;
+
+    color: #ffffff;
+}
+
+.minorDay {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 160%;
+
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 770px) {
+    .container {
+        flex-direction: column;
+        width: 100vw;
+        align-items: flex-start;
+    }
+
+    .containerDaysIndicators {
+        margin: 0;
+    }
 }
