@@ -16,7 +16,28 @@
     align-items: flex-start;
     gap: 32px;
 
-    /* padding-top: 260px; */
 
 }
+
+button {
+    background-color: #363447;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    
+    color: #FFFFFF;
+  }
+  
+button:hover {
+    background-color: #2c2f3e;
+  }
 
