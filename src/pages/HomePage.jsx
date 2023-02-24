@@ -2,6 +2,7 @@ import styles from "./styles.module.css";
 import Nps from "../components/nps/nps";
 import CircleCard from "../components/circleCard/circleCard";
 import WeekSales from "../components/weekSales/weekSales";
+import Footer from "../components/footer/footer";
 
 function HomePage() {
   const allSales = {
@@ -40,6 +41,7 @@ function HomePage() {
       <div className={styles.weekSales}>
         <WeekSales />
       </div>
+      <Footer />
     </div>
   );
 }
