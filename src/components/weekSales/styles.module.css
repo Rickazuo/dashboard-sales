@@ -1,0 +1,75 @@
+.container{
+    display: flex;
+flex-direction: row;
+align-items: flex-end;
+    background: #363447;
+box-shadow: 3px 4px 26px rgba(0, 0, 0, 0.25);
+border-radius: 16px;
+
+
+}
+
+
+.containerDaysIndicators{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 29px 48px;
+gap: 32px;
+
+margin-right: 164px;
+}
+
+.titleWeekSales{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 160%;
+
+align-items: flex-start;
+text-align: left;
+
+color: #FFFFFF;
+}
+
+.dayIndicator{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.dayMoreSale{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 160%;
+
+gap: 4px;
+
+display: flex;
+
+color: #FFFFFF;
+
+}
+
+.majorDay{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 160%;
+
+color: #FFFFFF;
+}
+
+.minorDay{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 160%;
+    
+    color: #FFFFFF;
+}
