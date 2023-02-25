@@ -14,7 +14,7 @@ Criação de um dashboard de vendas é o #8 desafio <a href="https://boracodar.d
 <br>
 
 <p align="center" id="-layout">
-  <img alt="carnaval searcher project gif" src="./src/assets/gif-carnaval-web.gif" width="100%">
+  <img alt="dashboard sales project gif" src="./src/assets/dashboard.gif" width="100%">
 </p>
 
 ## 🚀 Tecnologias
