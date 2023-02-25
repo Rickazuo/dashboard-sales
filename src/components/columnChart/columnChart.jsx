@@ -77,7 +77,7 @@ const ColumnChart = ({ width, weeklyResults }) => {
                 options={options}
                 series={series}
                 type="bar"
-                width={width < 400 ? "360" : "628"}
+                width={width < 420 ? "360" : "628"}
                 height="300"
             />
         </div>
