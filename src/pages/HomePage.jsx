@@ -7,78 +7,101 @@ import { useState, useEffect } from "react";
 import Popup from "../components/popup/popup";
 
 function HomePage() {
-    const [popUp, setPopUp] = useState(false);
-    const [windowSize, setWindowSize] = useState(window.innerWidth);
+  const [popUp, setPopUp] = useState(false);
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
 
-    console.log(popUp);
-    const toogle = () => {
-        debugger;
-        setPopUp(!popUp);
-    };
+  const [allSales, setAllSales] = useState({
+    title: "Vendas Fechadas",
+    salesExpected: 100,
+    salesPerformed: 70,
+    percentage: 70,
+  });
 
-    const allSales = {
-        title: "Vendas Fechadas",
-        salesExpected: 100,
-        salesPerformed: 70,
-    };
+  const [goalSales, setGoalSales] = useState({
+    title: "Meta Mensal",
+    salesExpected: 100000,
+    salesPerformed: 70000,
+    percentage: 70,
+  });
 
-    const goalSales = {
-        title: "Meta Mensal",
-        salesExpected: 70,
-        salesPerformed: 63,
-    };
-
-    useEffect(() => {
-        const handleWindowResize = () => {
-            setWindowSize(window.innerWidth);
-        };
-
-        window.addEventListener("resize", handleWindowResize);
-
-        return () => {
-            window.removeEventListener("resize", handleWindowResize);
-        };
+  const changeAllSales = (value, name) => {
+    setAllSales({
+      ...allSales,
+      [name]: parseInt(value),
     });
+  };
 
-    return (
-        <div>
-            <button onClick={toogle}>Adicionar Dados</button>
-            <div className={styles.container}>
-                <div className={styles.indicatorsContainer}>
-                    <Nps />
-                    <CircleCard
-                        width={windowSize}
-                        title={allSales.title}
-                        percentage={
-                            (allSales.salesPerformed / allSales.salesExpected) *
-                            100
-                        }
-                        salesExpected={allSales.salesExpected}
-                        salesPerformed={allSales.salesPerformed}
-                    />
-                    <CircleCard
-                        width={windowSize}
-                        title={goalSales.title}
-                        percentage={
-                            ((goalSales.salesPerformed /
-                                goalSales.salesExpected) *
-                                100) /
-                            1000
-                        }
-                        currencyReal
-                        currencyThousand
-                        salesExpected={goalSales.salesExpected}
-                        salesPerformed={goalSales.salesPerformed / 1000}
-                    />
-                    {popUp && <Popup close={toogle} />}
-                </div>
-                <div className={styles.weekSales}>
-                    <WeekSales width={windowSize} />
-                </div>
-                <Footer />
-            </div>
+  const changeGoalSales = (value, name) => {
+    setGoalSales({
+      ...goalSales,
+      [name]: parseInt(value),
+    });
+  };
+
+  const toogle = () => {
+    setPopUp(!popUp);
+  };
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  });
+  return (
+    <div>
+      <button className={styles.buttonContainer} onClick={toogle}>
+        Adicionar Dados
+      </button>
+      <div className={styles.container}>
+        <div className={styles.indicatorsContainer}>
+          <Nps />
+          <CircleCard
+            width={windowSize}
+            title={allSales.title}
+            percentage={allSales.percentage}
+            salesExpected={allSales.salesExpected}
+            salesPerformed={allSales.salesPerformed}
+            color={{
+              color: "#CE9FFC",
+              gradientColor: "#7367F0",
+            }}
+          />
+          <CircleCard
+            width={windowSize}
+            title={goalSales.title}
+            percentage={goalSales.percentage}
+            currencyReal
+            currencyThousand
+            salesExpected={goalSales.salesExpected / 1000}
+            salesPerformed={goalSales.salesPerformed / 1000}
+            color={{
+              color: "#DF9780",
+              gradientColor: "#A66DE9",
+            }}
+          />
+          {popUp && (
+            <Popup
+              close={toogle}
+              allSales={allSales}
+              goalSales={goalSales}
+              changeAllSales={changeAllSales}
+              changeGoalSales={changeGoalSales}
+            />
+          )}
         </div>
-    );
+        <div className={styles.weekSales}>
+          <WeekSales width={windowSize} />
+        </div>
+        <Footer />
+      </div>
+    </div>
+  );
 }
 
 export default HomePage;

@@ -16,6 +16,7 @@
     gap: 32px;
 }
 
+
 button {
     background-color: #363447;
     color: white;
@@ -32,13 +33,16 @@ button {
     line-height: 160%;
 
     color: #ffffff;
+
+    display: flex;
+    align-self: center;
 }
 
 button:hover {
     background-color: #2c2f3e;
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 900px) {
     .indicatorsContainer {
         flex-direction: column;
     }

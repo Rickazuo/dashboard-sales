@@ -121,7 +121,7 @@
     color: #ffffff;
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 900px) {
     .container {
         width: 100vw;
     }

@@ -1,7 +1,12 @@
 import styles from "./styles.module.css";
 
-const Popup = ({ close }) => {
-  debugger;
+const Popup = ({
+  close,
+  allSales,
+  changeAllSales,
+  goalSales,
+  changeGoalSales,
+}) => {
   return (
     <div className={styles.overlay}>
       <div className={styles.container}>
@@ -12,15 +17,58 @@ const Popup = ({ close }) => {
           </div>
           <div className={styles.finishedSalesContainer}>
             <div>Vendas Fechadas</div>
-            <input placeholder="Quantidade Esperada" type="text" />
-            <input placeholder="Quantidade Alcançada" type="text" />
+            <input
+              type="number"
+              value={allSales.salesExpected}
+              onChange={(e) => changeAllSales(e.target.value, "salesExpected")}
+              placeholder="Quantidade Esperada"
+            />
+            <input
+              type="number"
+              value={allSales.salesPerformed}
+              onChange={(e) => changeAllSales(e.target.value, "salesPerformed")}
+              placeholder="Quantidade Alcançada"
+            />
           </div>
           <div className={styles.monthGoalContainer}>
             <div>Meta Mensal</div>
-            <input placeholder="Valor Esperado" type="text" />
-            <input placeholder="Valor Alcançado" type="text" />
+            <input
+              type="number"
+              value={goalSales.salesExpected}
+              onChange={(e) => changeGoalSales(e.target.value, "salesExpected")}
+              placeholder="Valor Esperado"
+            />
+            <input
+              type="number"
+              value={goalSales.salesPerformed}
+              onChange={(e) =>
+                changeGoalSales(e.target.value, "salesPerformed")
+              }
+              placeholder="Valor Alcançado"
+            />
           </div>
-          <button className={styles.buttonOverLay} onClick={close}>
+          <button
+            className={styles.buttonOverLay}
+            onClick={() => {
+              if (
+                !allSales.salesPerformed ||
+                !allSales.salesExpected ||
+                !goalSales.salesPerformed ||
+                !goalSales.salesExpected
+              ) {
+                alert("Insira um valor numérico inteiro");
+                return;
+              }
+              const percentageAllSales =
+                (allSales.salesPerformed / allSales.salesExpected) * 100;
+              changeAllSales(percentageAllSales, "percentage");
+
+              const percentageGoalSales =
+                (goalSales.salesPerformed / goalSales.salesExpected) * 100;
+              changeGoalSales(percentageGoalSales, "percentage");
+              close();
+            }}
+          >
             Aplicar Dados
           </button>
         </div>

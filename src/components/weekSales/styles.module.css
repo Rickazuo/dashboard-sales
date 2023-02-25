@@ -70,7 +70,7 @@
     color: #ffffff;
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 900px) {
     .container {
         flex-direction: column;
         width: 100vw;
