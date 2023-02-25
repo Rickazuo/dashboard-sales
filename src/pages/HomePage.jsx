@@ -9,6 +9,11 @@ import Popup from "../components/popup/popup";
 function HomePage() {
     const [popUp, setPopUp] = useState(false);
     const [windowSize, setWindowSize] = useState(window.innerWidth);
+    const [weeklyResults, setWeeklyResults] = useState({
+        weeklySales: [70, 55, 57, 56, 61, 58, 63],
+        bestSaleDay: "Segunda-feira",
+        worstSaleDay: "Terça-Feira",
+    });
 
     const [allSales, setAllSales] = useState({
         title: "Vendas Fechadas",
@@ -92,11 +97,16 @@ function HomePage() {
                             goalSales={goalSales}
                             changeAllSales={changeAllSales}
                             changeGoalSales={changeGoalSales}
+                            setWeeklyResults={setWeeklyResults}
                         />
                     )}
                 </div>
                 <div className={styles.weekSales}>
-                    <WeekSales goalSales={goalSales} width={windowSize} />
+                    <WeekSales
+                        weeklyResults={weeklyResults}
+                        goalSales={goalSales}
+                        width={windowSize}
+                    />
                 </div>
                 <Footer />
             </div>
