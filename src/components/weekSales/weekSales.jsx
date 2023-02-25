@@ -5,7 +5,58 @@ import styles from "./styles.module.css";
 import triangleUp from "../../assets/triangleUp.svg";
 import triangleDown from "../../assets/triangleDown.svg";
 
-const WeekSales = ({ width }) => {
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+const WeekSales = ({ width, goalSales }) => {
+    const weeklyResults = () => {
+        let weeklyDays = [
+                "Segunda-Feira",
+                "Terça-Feira",
+                "Quarta-Feira",
+                "Quinta-Feira",
+                "Sexta-Feira",
+                "Sábado",
+                "Domingo",
+            ],
+            weeklySales = [],
+            mathAux,
+            reducer = goalSales.salesPerformed / 4;
+
+        for (let i = 0; i < 7; i++) {
+            if (i === 6) {
+                weeklySales.push(parseInt(reducer));
+                break;
+            }
+            mathAux = reducer / 2;
+            mathAux = getRandomArbitrary(mathAux / 2, mathAux);
+            reducer -= mathAux;
+            weeklySales.push(parseInt(mathAux));
+        }
+
+        const bestSaleDay =
+            weeklyDays[
+                weeklySales.findIndex(
+                    (elem) => elem === Math.max(...weeklySales)
+                )
+            ];
+        const worstSaleDay =
+            weeklyDays[
+                weeklySales.findIndex(
+                    (elem) => elem === Math.min(...weeklySales)
+                )
+            ];
+
+        return {
+            weeklySales,
+            bestSaleDay,
+            worstSaleDay,
+        };
+    };
+
+    const results = weeklyResults();
+
     return (
         <div className={styles.container}>
             <div className={styles.containerDaysIndicators}>
@@ -17,7 +68,7 @@ const WeekSales = ({ width }) => {
                         <img src={triangleUp} alt="icon of triangle" />
                         <div>Dia com Mais vendas</div>
                     </div>
-                    <div className={styles.majorDay}>Quarta-Feira</div>
+                    <div className={styles.majorDay}>{results.bestSaleDay}</div>
                 </div>
                 <div>
                     <div className={styles.dayIndicator}>
@@ -28,11 +79,13 @@ const WeekSales = ({ width }) => {
                             />
                             <div>Dia com menos vendas</div>
                         </div>
-                        <div className={styles.minorDay}>Quarta-Feira</div>
+                        <div className={styles.minorDay}>
+                            {results.worstSaleDay}
+                        </div>
                     </div>
                 </div>
             </div>
-            <ColumnChart width={width} />
+            <ColumnChart width={width} weeklyResults={results} />
         </div>
     );
 };
